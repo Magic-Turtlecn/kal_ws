@@ -1,0 +1,7 @@
+set(util_testing_ros_SETUP_PY_SETUP_MODULE "setuptools")
+set(util_testing_ros_SETUP_PY_VERSION "1.0.0")
+set(util_testing_ros_SETUP_PY_SCRIPTS "")
+set(util_testing_ros_SETUP_PY_PACKAGES "util_testing_ros")
+set(util_testing_ros_SETUP_PY_PACKAGE_DIRS "src/util_testing_ros")
+set(util_testing_ros_SETUP_PY_MODULES "")
+set(util_testing_ros_SETUP_PY_MODULE_DIRS "")

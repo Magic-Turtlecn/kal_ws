@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/yzz/kal_ws/devel/.private/util_testing_ros/setup.sh

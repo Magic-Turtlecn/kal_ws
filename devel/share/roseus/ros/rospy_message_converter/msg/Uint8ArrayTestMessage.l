@@ -1,0 +1,1 @@
+/home/yzz/kal_ws/devel/.private/rospy_message_converter/share/roseus/ros/rospy_message_converter/msg/Uint8ArrayTestMessage.l

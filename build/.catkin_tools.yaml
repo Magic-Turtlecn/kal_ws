@@ -1,0 +1,6 @@
+devel_space: /home/yzz/kal_ws/devel
+install: false
+install_space: /home/yzz/kal_ws/install
+profile: default
+source_space: /home/yzz/kal_ws/src
+workspace: /home/yzz/kal_ws

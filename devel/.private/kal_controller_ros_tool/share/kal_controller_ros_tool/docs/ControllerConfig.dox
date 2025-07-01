@@ -1,0 +1,13 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~verbosity" : \b [str] Sets the verbosity for this node min: , default: info, max: 
+- \b "~k_angular" : \b [double] Angle weight [-] min: 0.0, default: 0, max: 10.0
+- \b "~k_distance" : \b [double] Distance weight [-] min: 0.0, default: 0, max: 10.0
+- \b "~look_ahead_index" : \b [int] Index shift of lookahead point [-] min: 1, default: 0, max: 50
+- \b "~publish_debug_info" : \b [bool] Whether or not to publish debug info min: False, default: False, max: True
+- \b "~steering_angle_max" : \b [double] The maximum steering angle [rad] min: 0.0, default: 0, max: 1.0
+- \b "~trajectory_age_max" : \b [double] Maximum age of last trajectory before stopping the vehicle [s] min: 0.1, default: 0, max: 5.0
+- \b "~min_velocity_threshold" : \b [double] Desired velocity threshold below which the car stops driving [m/s] min: 0.01, default: 0, max: 2.0
+

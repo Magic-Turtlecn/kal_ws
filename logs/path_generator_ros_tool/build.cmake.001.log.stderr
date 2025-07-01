@@ -1,0 +1,9 @@
+[31m[1mCMake Error[0m at /opt/ros/noetic/share/mrt_cmake_modules/cmake/Modules/FindAutoDeps.cmake:176 (message):
+  Package rosinterface_handler was not found.  If it is a catkin package:
+  Make sure it is present.  If it is an external package: Make sure it is
+  listed in mrt_cmake_modules/yaml/cmake.yaml!
+[36mCall Stack (most recent call first):[0m
+  /opt/ros/noetic/share/mrt_cmake_modules/cmake/Modules/FindAutoDeps.cmake:262 (_find_dep)
+  CMakeLists.txt:23 (find_package)
+
+

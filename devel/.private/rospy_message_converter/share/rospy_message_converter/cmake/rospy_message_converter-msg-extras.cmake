@@ -1,0 +1,2 @@
+set(rospy_message_converter_MESSAGE_FILES "/home/yzz/kal_ws/src/rospy_message_converter/msg/NestedUint8ArrayTestMessage.msg;/home/yzz/kal_ws/src/rospy_message_converter/msg/TestArray.msg;/home/yzz/kal_ws/src/rospy_message_converter/msg/Uint8Array3TestMessage.msg;/home/yzz/kal_ws/src/rospy_message_converter/msg/Uint8ArrayTestMessage.msg")
+set(rospy_message_converter_SERVICE_FILES "/home/yzz/kal_ws/src/rospy_message_converter/srv/NestedUint8ArrayTestService.srv")

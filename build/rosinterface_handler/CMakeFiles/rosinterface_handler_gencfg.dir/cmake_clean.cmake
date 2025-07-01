@@ -1,0 +1,40 @@
+file(REMOVE_RECURSE
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/include/rosinterface_handler/DefaultsAtLaunchConfig.h"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/include/rosinterface_handler/DefaultsAtLaunchInterface.h"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/include/rosinterface_handler/DefaultsConfig.h"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/include/rosinterface_handler/DefaultsInterface.h"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/include/rosinterface_handler/DefaultsMissingConfig.h"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/include/rosinterface_handler/DefaultsMissingInterface.h"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/include/rosinterface_handler/MinMaxConfig.h"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/include/rosinterface_handler/MinMaxInterface.h"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/lib/python3/dist-packages/rosinterface_handler/cfg/DefaultsAtLaunchConfig.py"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/lib/python3/dist-packages/rosinterface_handler/cfg/DefaultsConfig.py"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/lib/python3/dist-packages/rosinterface_handler/cfg/DefaultsMissingConfig.py"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/lib/python3/dist-packages/rosinterface_handler/cfg/MinMaxConfig.py"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/lib/python3/dist-packages/rosinterface_handler/interface/DefaultsAtLaunchInterface.py"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/lib/python3/dist-packages/rosinterface_handler/interface/DefaultsInterface.py"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/lib/python3/dist-packages/rosinterface_handler/interface/DefaultsMissingInterface.py"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/lib/python3/dist-packages/rosinterface_handler/interface/MinMaxInterface.py"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/share/rosinterface_handler/cfg/Defaults.cfg"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/share/rosinterface_handler/cfg/DefaultsAtLaunch.cfg"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/share/rosinterface_handler/cfg/DefaultsMissing.cfg"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/share/rosinterface_handler/cfg/MinMax.cfg"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/share/rosinterface_handler/docs/DefaultsAtLaunchConfig-usage.dox"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/share/rosinterface_handler/docs/DefaultsAtLaunchConfig.dox"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/share/rosinterface_handler/docs/DefaultsAtLaunchConfig.wikidoc"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/share/rosinterface_handler/docs/DefaultsConfig-usage.dox"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/share/rosinterface_handler/docs/DefaultsConfig.dox"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/share/rosinterface_handler/docs/DefaultsConfig.wikidoc"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/share/rosinterface_handler/docs/DefaultsMissingConfig-usage.dox"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/share/rosinterface_handler/docs/DefaultsMissingConfig.dox"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/share/rosinterface_handler/docs/DefaultsMissingConfig.wikidoc"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/share/rosinterface_handler/docs/MinMaxConfig-usage.dox"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/share/rosinterface_handler/docs/MinMaxConfig.dox"
+  "/home/yzz/kal_ws/devel/.private/rosinterface_handler/share/rosinterface_handler/docs/MinMaxConfig.wikidoc"
+  "CMakeFiles/rosinterface_handler_gencfg"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang )
+  include(CMakeFiles/rosinterface_handler_gencfg.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

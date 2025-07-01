@@ -1,0 +1,11 @@
+\subsubsection usage Usage
+\verbatim
+<node name="trajectory_planner" pkg="kal_trajectory_planner_ros_tool" type="trajectory_planner">
+  <param name="verbosity" type="str" value="info" />
+  <param name="desired_speed" type="double" value="0" />
+  <param name="polynomial_degree" type="int" value="0" />
+  <param name="trajectory_length" type="double" value="0" />
+  <param name="trajectory_num_of_points" type="int" value="0" />
+</node>
+\endverbatim
+

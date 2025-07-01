@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>kal_controller</name>
+  <version>0.0.0</version>
+  <description>Simple controller implementation for the Kognitive Automobile Labor</description>
+
+  <license>BSD</license>
+  <maintainer email="nick.lelarge@kit.edu">Nick Le Large</maintainer>
+  <author email="nick.lelarge@kit.edu">Nick Le Large</author>
+  <url type="repository">https://gitlab.mrt.kit.edu/kognitive_automobile_labor/shared/kal_controller</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>mrt_cmake_modules</build_depend>
+  <test_depend>gtest</test_depend>
+
+  <depend>eigen</depend>
+
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+  </export>
+</package>

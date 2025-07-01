@@ -1,0 +1,34 @@
+[36m--[0m Using CATKIN_DEVEL_PREFIX: /home/yzz/kal_ws/devel/.private/util_testing_ros
+[36m--[0m Using CMAKE_PREFIX_PATH: /home/yzz/kal_ws/devel;/opt/ros/noetic
+[36m--[0m This workspace overlays: /home/yzz/kal_ws/devel;/opt/ros/noetic
+[36m--[0m Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3")
+[36m--[0m Using PYTHON_EXECUTABLE: /usr/bin/python3
+[36m--[0m Using Debian Python package layout
+[36m--[0m Using empy: /usr/lib/python3/dist-packages/em.py
+[36m--[0m Using CATKIN_ENABLE_TESTING: ON
+[36m--[0m Call enable_testing()
+[36m--[0m Using CATKIN_TEST_RESULTS_DIR: /home/yzz/kal_ws/build/util_testing_ros/test_results
+[36m--[0m Forcing gtest/gmock from source, though one was otherwise available.
+[36m--[0m Found gtest sources under '/usr/src/googletest': gtests will be built
+[36m--[0m Found gmock sources under '/usr/src/googletest': gmock will be built
+[36m--[0m Found PythonInterp: /usr/bin/python3 (found version "3.8.10")
+[36m--[0m Using Python nosetests: /usr/bin/nosetests3
+[36m--[0m catkin 0.8.12
+[36m--[0m BUILD_SHARED_LIBS is on
+[36m--[0m Found OpenMP_C: -fopenmp
+[36m--[0m Found OpenMP_CXX: -fopenmp
+[36m--[0m Found OpenMP: TRUE
+called: /opt/ros/noetic/share/mrt_cmake_modules/cmake/../scripts/generate_cmake_dependency_file.py /home/yzz/kal_ws/src/util_testing_ros/package.xml /opt/ros/noetic/share/mrt_cmake_modules/cmake/../yaml/cmake.yaml /home/yzz/kal_ws/build/util_testing_ros/CMakeFiles/auto_dep_vars.cmake
+[36m--[0m Adding header-only library with files include/util_testing_ros/initialization.hpp;include/util_testing_ros/listener.hpp;include/util_testing_ros/time_controller.hpp
+[36m--[0m Marking libraries "util_testing_ros" of package "util_testing_ros" for installation
+[36m--[0m Marking HEADER FILES in "include/util_testing_ros" folder of package "util_testing_ros" for installation
+[36m--[0m Generating cmake exports for util_testing_ros to /home/yzz/kal_ws/devel/.private/util_testing_ros/share
+[36m--[0m Adding gtest-rostest "util_testing_ros-rostest-util_testing_ros-test" with test file test/util_testing_ros.test
+[36m--[0m Creating gtest 'util_testing_ros-rostest-util_testing_ros-test' from test/util_testing_ros.cpp
+[36m--[0m Adding plain rostest "test/util_testing_ros_python.test"
+[36m--[0m Adding nosetests in folder /home/yzz/kal_ws/src/util_testing_ros/test
+[36m--[0m Using Python nosetests: /usr/bin/nosetests3
+[36m--[0m Adding nosetest nosetests-util_testing_ros-test
+[36m--[0m Configuring done
+[36m--[0m Generating done
+[36m--[0m Build files have been written to: /home/yzz/kal_ws/build/util_testing_ros

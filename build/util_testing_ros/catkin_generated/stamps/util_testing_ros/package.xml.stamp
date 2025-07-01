@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>util_testing_ros</name>
+  <version>1.0.0</version>
+  <description>Utility library for simple creation of ROS unittests</description>
+
+  <license>GPLv3</license>
+  <maintainer email="kevin.roesch@kit.edu">Kevin Rösch</maintainer>
+  <author email="fabian.poggenhans@kit.edu">Fabian Poggenhans</author>
+  <url type="repository">https://gitlab.mrt.uni-karlsruhe.de/MRT/production/util_testing_ros.git</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>mrt_cmake_modules</build_depend>
+  <test_depend>gtest</test_depend>
+  <test_depend>rostest</test_depend>
+  <build_depend>roscpp</build_depend>
+  <depend>roslib</depend>
+  <depend>rosnode</depend>
+  <depend>rospy</depend>
+  <depend>nodelet</depend>
+
+  <export>
+  </export>
+</package>

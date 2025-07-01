@@ -1,0 +1,1 @@
+/home/yzz/kal_ws/devel/.private/rosinterface_handler/share/rosinterface_handler/cmake/rosinterface_handlerConfig-version.cmake

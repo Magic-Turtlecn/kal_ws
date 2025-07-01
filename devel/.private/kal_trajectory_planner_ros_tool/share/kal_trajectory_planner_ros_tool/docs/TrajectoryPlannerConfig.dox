@@ -1,0 +1,10 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~verbosity" : \b [str] Sets the verbosity for this node min: , default: info, max: 
+- \b "~desired_speed" : \b [double] Desired speed [m/s] min: 0.5, default: 0, max: 20.0
+- \b "~polynomial_degree" : \b [int] The degree of the polynomial used to estimate the trajectory min: 0, default: 0, max: 10
+- \b "~trajectory_length" : \b [double] Minimum length of the trajectory [m] min: 0.0, default: 0, max: 10.0
+- \b "~trajectory_num_of_points" : \b [int] The number of points the published trajectory will have min: 2, default: 0, max: 100
+

@@ -1,0 +1,8 @@
+prefix=/home/yzz/kal_ws/devel/.private/rospy_message_converter
+
+Name: rospy_message_converter
+Description: Description of rospy_message_converter
+Version: 0.5.9
+Cflags: -I/home/yzz/kal_ws/devel/.private/rospy_message_converter/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime std_msgs

@@ -1,0 +1,8 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~verbosity_param_wo_default" : \b [str] Sets the verbosity for this node min: , default: , max: 
+- \b "~enum_int_param_wo_default" : \b [int] int enum min: -2147483648, default: 0, max: 2147483647
+- \b "~enum_str_param_wo_default" : \b [str] string enum min: , default: , max: 
+

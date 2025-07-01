@@ -1,0 +1,5 @@
+[  0%] Built target _catkin_empty_exported_target
+[35m[1mScanning dependencies of target kal_trajectory_planner[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/kal_trajectory_planner.dir/src/trajectory_planner.cpp.o[0m
+[100%] [32m[1mLinking CXX shared library /home/yzz/kal_ws/devel/.private/kal_trajectory_planner/lib/libkal_trajectory_planner.so[0m
+[100%] Built target kal_trajectory_planner

@@ -1,0 +1,31 @@
+\subsubsection usage Usage
+\verbatim
+<node name="rosinterface_handler_test" pkg="rosinterface_handler" type="rosinterface_handler_test">
+  <param name="int_param_w_default" type="int" value="1" />
+  <param name="enum_int_param_w_default" type="int" value="1" />
+  <param name="enum_str_param_w_default" type="str" value="One" />
+  <param name="publisher_w_default_topic" type="str" value="out_topic" />
+  <param name="publisher_w_default_queue_size" type="int" value="5" />
+  <param name="publisher_diag_w_default_topic" type="str" value="out_point_topic" />
+  <param name="publisher_diag_w_default_queue_size" type="int" value="5" />
+  <param name="publisher_diag_w_default_min_frequency" type="double" value="0.0" />
+  <param name="publisher_diag_w_default_max_delay" type="double" value="1e+308" />
+  <param name="publisher_public_w_default_topic" type="str" value="out_topic" />
+  <param name="publisher_public_w_default_queue_size" type="int" value="5" />
+  <param name="publisher_global_w_default_topic" type="str" value="out_topic" />
+  <param name="publisher_global_w_default_queue_size" type="int" value="5" />
+  <param name="subscriber_w_default_topic" type="str" value="in_topic" />
+  <param name="subscriber_w_default_queue_size" type="int" value="5" />
+  <param name="subscriber_diag_w_default_topic" type="str" value="in_point_topic" />
+  <param name="subscriber_diag_w_default_queue_size" type="int" value="5" />
+  <param name="subscriber_diag_w_default_min_frequency" type="double" value="0.0" />
+  <param name="subscriber_diag_w_default_max_delay" type="double" value="1e+308" />
+  <param name="subscriber_public_w_default_topic" type="str" value="in_topic" />
+  <param name="subscriber_public_w_default_queue_size" type="int" value="5" />
+  <param name="subscriber_global_w_default_topic" type="str" value="in_topic" />
+  <param name="subscriber_global_w_default_queue_size" type="int" value="5" />
+  <param name="subscriber_smart_topic" type="str" value="in_topic2" />
+  <param name="subscriber_smart_queue_size" type="int" value="5" />
+</node>
+\endverbatim
+

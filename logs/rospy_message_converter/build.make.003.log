@@ -1,0 +1,16 @@
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_nodejs
+[  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target _rospy_message_converter_generate_messages_check_deps_Uint8Array3TestMessage
+[  0%] Built target _rospy_message_converter_generate_messages_check_deps_TestArray
+[  0%] Built target _rospy_message_converter_generate_messages_check_deps_Uint8ArrayTestMessage
+[  0%] Built target _rospy_message_converter_generate_messages_check_deps_NestedUint8ArrayTestMessage
+[  0%] Built target _rospy_message_converter_generate_messages_check_deps_NestedUint8ArrayTestService
+[ 17%] Built target rospy_message_converter_generate_messages_lisp
+[ 53%] Built target rospy_message_converter_generate_messages_py
+[ 60%] Built target rospy_message_converter_generate_messages_cpp
+[ 82%] Built target rospy_message_converter_generate_messages_eus
+[100%] Built target rospy_message_converter_generate_messages_nodejs
+[100%] Built target rospy_message_converter_generate_messages

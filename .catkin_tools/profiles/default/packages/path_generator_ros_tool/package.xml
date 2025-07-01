@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package format="3">
+  <name>path_generator_ros_tool</name>
+  <version>0.0.0</version>
+  <description>This package is used for creating OSM files from a trajectory driven by the vehicle. It is mainly used for Anicar in the KAL lab.</description>
+
+  <license>MRT</license>
+  <maintainer email="nick.lelarge@kit.edu">Nick Le Large</maintainer>
+  <author email="junyizhu.gai@gmail.com">Junyi_Zhu</author>
+  <url type="repository">https://gitlab.mrt.kit.edu/kognitive_automobile_labor/shared/path_generator_ros_tool</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>mrt_cmake_modules</build_depend>
+  <build_depend>rosinterface_handler</build_depend>
+  <build_depend>message_generation</build_depend>
+  <exec_depend>message_runtime</exec_depend>
+  <test_depend>gtest</test_depend>
+  <test_depend>rostest</test_depend>
+
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <exec_depend condition="$ROS_PYTHON_VERSION == 2">python-yaml</exec_depend>
+  <exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-yaml</exec_depend>
+  <exec_depend condition="$ROS_PYTHON_VERSION == 2">python-scipy</exec_depend>
+  <exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-scipy</exec_depend>
+  <depend>rosbag</depend>
+  <depend>rospy_message_converter</depend>
+
+  <export>
+    <nodelet plugin="${prefix}/nodelet_plugins.xml" /><!-- Other tools can request additional information be placed here -->
+  </export>
+</package>

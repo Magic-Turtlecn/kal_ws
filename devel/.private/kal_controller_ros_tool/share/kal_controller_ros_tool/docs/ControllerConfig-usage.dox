@@ -1,0 +1,14 @@
+\subsubsection usage Usage
+\verbatim
+<node name="controller" pkg="kal_controller_ros_tool" type="controller">
+  <param name="verbosity" type="str" value="info" />
+  <param name="k_angular" type="double" value="0" />
+  <param name="k_distance" type="double" value="0" />
+  <param name="look_ahead_index" type="int" value="0" />
+  <param name="publish_debug_info" type="bool" value="False" />
+  <param name="steering_angle_max" type="double" value="0" />
+  <param name="trajectory_age_max" type="double" value="0" />
+  <param name="min_velocity_threshold" type="double" value="0" />
+</node>
+\endverbatim
+

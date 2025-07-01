@@ -1,0 +1,8 @@
+prefix=/home/yzz/kal_ws/devel/.private/rosinterface_handler
+
+Name: rosinterface_handler
+Description: Description of rosinterface_handler
+Version: 0.2.1
+Cflags: -I/home/yzz/kal_ws/devel/.private/rosinterface_handler/include -I/home/yzz/kal_ws/src/rosinterface_handler/include
+Libs: -L${prefix}/lib 
+Requires: catkin

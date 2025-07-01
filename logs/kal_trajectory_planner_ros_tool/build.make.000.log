@@ -1,0 +1,159 @@
+[35m[1mScanning dependencies of target tf2_msgs_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target nodelet_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target tf2_msgs_generate_messages_lisp[0m
+[35m[1mScanning dependencies of target actionlib_msgs_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target actionlib_generate_messages_py[0m
+[35m[1mScanning dependencies of target kal_trajectory_planner_ros_tool_gencfg[0m
+[35m[1mScanning dependencies of target tf2_msgs_generate_messages_eus[0m
+[35m[1mScanning dependencies of target actionlib_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_eus[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target dynamic_reconfigure_gencfg[0m
+[35m[1mScanning dependencies of target rosgraph_msgs_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target rosinterface_handler_geninterface[0m
+[35m[1mScanning dependencies of target rosinterface_handler_gencfg[0m
+[ 12%] Built target tf2_msgs_generate_messages_eus
+[ 12%] [34m[1mGenerating interface files from TrajectoryPlanner[0m
+[ 12%] Built target tf2_msgs_generate_messages_nodejs
+[ 12%] Built target nodelet_generate_messages_cpp
+[ 12%] Built target actionlib_generate_messages_nodejs
+[ 12%] Built target dynamic_reconfigure_gencfg
+[ 12%] Built target geometry_msgs_generate_messages_eus
+[ 12%] Built target tf2_msgs_generate_messages_lisp
+[ 12%] Built target actionlib_generate_messages_py
+[ 12%] Built target std_msgs_generate_messages_cpp
+[ 12%] Built target rosgraph_msgs_generate_messages_nodejs
+[ 12%] Built target rosinterface_handler_geninterface
+[ 12%] Built target actionlib_msgs_generate_messages_nodejs
+[ 12%] Built target rosinterface_handler_gencfg
+[35m[1mScanning dependencies of target actionlib_msgs_generate_messages_py[0m
+[35m[1mScanning dependencies of target rosgraph_msgs_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target rosgraph_msgs_generate_messages_lisp[0m
+[35m[1mScanning dependencies of target actionlib_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target roscpp_generate_messages_py[0m
+[35m[1mScanning dependencies of target rosgraph_msgs_generate_messages_py[0m
+[35m[1mScanning dependencies of target actionlib_generate_messages_eus[0m
+[35m[1mScanning dependencies of target nav_msgs_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target nodelet_generate_messages_eus[0m
+[35m[1mScanning dependencies of target roscpp_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target roscpp_generate_messages_lisp[0m
+[ 12%] Built target actionlib_generate_messages_cpp
+[ 12%] Built target actionlib_msgs_generate_messages_py
+[ 12%] Built target rosgraph_msgs_generate_messages_lisp
+[ 12%] Built target actionlib_generate_messages_eus
+[35m[1mScanning dependencies of target kal_trajectory_planner_ros_tool_geninterface[0m
+[ 12%] Built target nav_msgs_generate_messages_nodejs
+[35m[1mScanning dependencies of target actionlib_generate_messages_lisp[0m
+[ 12%] Built target roscpp_generate_messages_py
+[ 12%] Built target nodelet_generate_messages_eus
+[ 12%] Built target rosgraph_msgs_generate_messages_cpp
+[ 12%] Built target rosgraph_msgs_generate_messages_py
+Generating interface file for node trajectory_planner (class TrajectoryPlanner) in package kal_trajectory_planner_ros_tool
+[ 12%] Built target roscpp_generate_messages_nodejs
+[ 12%] Built target roscpp_generate_messages_lisp
+[35m[1mScanning dependencies of target roscpp_generate_messages_eus[0m
+[35m[1mScanning dependencies of target _catkin_empty_exported_target[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target nodelet_generate_messages_lisp[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_lisp[0m
+[35m[1mScanning dependencies of target actionlib_msgs_generate_messages_eus[0m
+[ 25%] [34m[1mGenerating interface files from TrajectoryPlanner[0m
+[35m[1mScanning dependencies of target rosgraph_msgs_generate_messages_eus[0m
+[35m[1mScanning dependencies of target dynamic_reconfigure_generate_messages_py[0m
+[35m[1mScanning dependencies of target nav_msgs_generate_messages_cpp[0m
+[ 25%] Built target actionlib_generate_messages_lisp
+[35m[1mScanning dependencies of target bond_generate_messages_eus[0m
+[35m[1mScanning dependencies of target roscpp_generate_messages_cpp[0m
+[ 25%] Built target actionlib_msgs_generate_messages_eus
+[ 25%] Built target nodelet_generate_messages_lisp
+[ 25%] Built target _catkin_empty_exported_target
+[ 25%] Built target dynamic_reconfigure_generate_messages_py
+[ 25%] Built target roscpp_generate_messages_eus
+[ 25%] Built target std_msgs_generate_messages_nodejs
+[ 25%] Built target rosgraph_msgs_generate_messages_eus
+[ 25%] Built target std_msgs_generate_messages_lisp
+[ 25%] Built target nav_msgs_generate_messages_cpp
+[35m[1mScanning dependencies of target std_msgs_generate_messages_py[0m
+[ 25%] Built target bond_generate_messages_eus
+[ 25%] Built target roscpp_generate_messages_cpp
+[35m[1mScanning dependencies of target nodelet_generate_messages_py[0m
+[35m[1mScanning dependencies of target nodelet_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target dynamic_reconfigure_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target tf2_msgs_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target bond_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target bond_generate_messages_lisp[0m
+[35m[1mScanning dependencies of target tf2_msgs_generate_messages_py[0m
+[35m[1mScanning dependencies of target dynamic_reconfigure_generate_messages_lisp[0m
+[35m[1mScanning dependencies of target bond_generate_messages_py[0m
+Generating interface file for node trajectory_planner (class TrajectoryPlanner) in package kal_trajectory_planner_ros_tool
+[ 25%] Built target std_msgs_generate_messages_py
+[35m[1mScanning dependencies of target bond_generate_messages_cpp[0m
+[ 25%] Built target nodelet_generate_messages_py
+[ 25%] Built target nodelet_generate_messages_nodejs
+[ 25%] Built target dynamic_reconfigure_generate_messages_cpp
+[ 25%] Built target bond_generate_messages_lisp
+[ 25%] Built target bond_generate_messages_nodejs
+[ 25%] Built target tf2_msgs_generate_messages_cpp
+[ 25%] Built target tf2_msgs_generate_messages_py
+[ 25%] Built target dynamic_reconfigure_generate_messages_lisp
+[ 37%] Built target bond_generate_messages_py
+[ 37%] [34m[1mGenerating dynamic reconfigure files from /home/yzz/kal_ws/devel/.private/kal_trajectory_planner_ros_tool/share/kal_trajectory_planner_ros_tool/cfg/TrajectoryPlanner.cfg: /home/yzz/kal_ws/devel/.private/kal_trajectory_planner_ros_tool/include/kal_trajectory_planner_ros_tool/TrajectoryPlannerConfig.h /home/yzz/kal_ws/devel/.private/kal_trajectory_planner_ros_tool/lib/python3/dist-packages/kal_trajectory_planner_ros_tool/cfg/TrajectoryPlannerConfig.py[0m
+[35m[1mScanning dependencies of target dynamic_reconfigure_generate_messages_nodejs[0m
+[ 37%] Built target bond_generate_messages_cpp
+[35m[1mScanning dependencies of target nav_msgs_generate_messages_eus[0m
+[35m[1mScanning dependencies of target nav_msgs_generate_messages_py[0m
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_lisp[0m
+[35m[1mScanning dependencies of target nav_msgs_generate_messages_lisp[0m
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_py[0m
+[35m[1mScanning dependencies of target dynamic_reconfigure_generate_messages_eus[0m
+[35m[1mScanning dependencies of target actionlib_msgs_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_eus[0m
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_nodejs[0m
+[ 37%] Built target dynamic_reconfigure_generate_messages_nodejs
+[ 37%] Built target nav_msgs_generate_messages_eus
+[ 37%] Built target nav_msgs_generate_messages_lisp
+[ 37%] Built target nav_msgs_generate_messages_py
+[ 37%] Built target geometry_msgs_generate_messages_cpp
+[ 37%] Built target geometry_msgs_generate_messages_lisp
+[ 37%] Built target geometry_msgs_generate_messages_py
+[ 37%] Built target dynamic_reconfigure_generate_messages_eus
+[ 37%] Built target actionlib_msgs_generate_messages_cpp
+[ 37%] Built target std_msgs_generate_messages_eus
+[35m[1mScanning dependencies of target actionlib_msgs_generate_messages_lisp[0m
+[ 37%] Built target geometry_msgs_generate_messages_nodejs
+[ 37%] Built target kal_trajectory_planner_ros_tool_geninterface
+Generating reconfiguration files for TrajectoryPlanner in kal_trajectory_planner_ros_tool
+Wrote header file in /home/yzz/kal_ws/devel/.private/kal_trajectory_planner_ros_tool/include/kal_trajectory_planner_ros_tool/TrajectoryPlannerConfig.h
+[ 37%] Built target actionlib_msgs_generate_messages_lisp
+[ 37%] Built target kal_trajectory_planner_ros_tool_gencfg
+[35m[1mScanning dependencies of target kal_trajectory_planner_ros_tool-trajectory_planner-nodelet[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/kal_trajectory_planner_ros_tool-trajectory_planner-nodelet.dir/src/trajectory_planner/trajectory_planner_nodelet.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/kal_trajectory_planner_ros_tool-trajectory_planner-nodelet.dir/src/trajectory_planner/trajectory_planner.cpp.o[0m
+In file included from [01m[K/home/yzz/kal_ws/devel/.private/kal_trajectory_planner_ros_tool/include/kal_trajectory_planner_ros_tool/TrajectoryPlannerInterface.h:18[m[K,
+                 from [01m[K/home/yzz/kal_ws/src/kal_trajectory_planner_ros_tool/src/trajectory_planner/trajectory_planner.hpp:11[m[K,
+                 from [01m[K/home/yzz/kal_ws/src/kal_trajectory_planner_ros_tool/src/trajectory_planner/trajectory_planner_nodelet.cpp:4[m[K:
+[01m[K/home/yzz/kal_ws/src/rosinterface_handler/include/rosinterface_handler/utilities.hpp:[m[K In function ‘[01m[Kstd::string rosinterface_handler::asString(Arg&&, Args&& ...)[m[K’:
+[01m[K/home/yzz/kal_ws/src/rosinterface_handler/include/rosinterface_handler/utilities.hpp:362:44:[m[K [01;35m[Kwarning: [m[Kfold-expressions only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+  362 |     (oss << ... << std::forward<Args>(Args_[01;35m[K)[m[K);
+      |                                            [01;35m[K^[m[K
+In file included from [01m[K/home/yzz/kal_ws/devel/.private/kal_trajectory_planner_ros_tool/include/kal_trajectory_planner_ros_tool/TrajectoryPlannerInterface.h:18[m[K,
+                 from [01m[K/home/yzz/kal_ws/src/kal_trajectory_planner_ros_tool/src/trajectory_planner/trajectory_planner.hpp:11[m[K,
+                 from [01m[K/home/yzz/kal_ws/src/kal_trajectory_planner_ros_tool/src/trajectory_planner/trajectory_planner.cpp:1[m[K:
+[01m[K/home/yzz/kal_ws/src/rosinterface_handler/include/rosinterface_handler/utilities.hpp:[m[K In function ‘[01m[Kstd::string rosinterface_handler::asString(Arg&&, Args&& ...)[m[K’:
+[01m[K/home/yzz/kal_ws/src/rosinterface_handler/include/rosinterface_handler/utilities.hpp:362:44:[m[K [01;35m[Kwarning: [m[Kfold-expressions only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+  362 |     (oss << ... << std::forward<Args>(Args_[01;35m[K)[m[K);
+      |                                            [01;35m[K^[m[K
+[ 75%] [32m[1mLinking CXX shared library /home/yzz/kal_ws/devel/.private/kal_trajectory_planner_ros_tool/lib/libkal_trajectory_planner_ros_tool-trajectory_planner-nodelet.so[0m
+[ 75%] Built target kal_trajectory_planner_ros_tool-trajectory_planner-nodelet
+[35m[1mScanning dependencies of target kal_trajectory_planner_ros_tool-trajectory_planner-exec[0m
+[ 87%] [32mBuilding CXX object CMakeFiles/kal_trajectory_planner_ros_tool-trajectory_planner-exec.dir/src/trajectory_planner/trajectory_planner_node.cpp.o[0m
+In file included from [01m[K/home/yzz/kal_ws/devel/.private/kal_trajectory_planner_ros_tool/include/kal_trajectory_planner_ros_tool/TrajectoryPlannerInterface.h:18[m[K,
+                 from [01m[K/home/yzz/kal_ws/src/kal_trajectory_planner_ros_tool/src/trajectory_planner/trajectory_planner.hpp:11[m[K,
+                 from [01m[K/home/yzz/kal_ws/src/kal_trajectory_planner_ros_tool/src/trajectory_planner/trajectory_planner_node.cpp:1[m[K:
+[01m[K/home/yzz/kal_ws/src/rosinterface_handler/include/rosinterface_handler/utilities.hpp:[m[K In function ‘[01m[Kstd::string rosinterface_handler::asString(Arg&&, Args&& ...)[m[K’:
+[01m[K/home/yzz/kal_ws/src/rosinterface_handler/include/rosinterface_handler/utilities.hpp:362:44:[m[K [01;35m[Kwarning: [m[Kfold-expressions only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+  362 |     (oss << ... << std::forward<Args>(Args_[01;35m[K)[m[K);
+      |                                            [01;35m[K^[m[K
+[100%] [32m[1mLinking CXX executable /home/yzz/kal_ws/devel/.private/kal_trajectory_planner_ros_tool/lib/kal_trajectory_planner_ros_tool/trajectory_planner[0m
+[100%] Built target kal_trajectory_planner_ros_tool-trajectory_planner-exec

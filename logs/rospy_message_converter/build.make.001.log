@@ -1,0 +1,43 @@
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target std_msgs_generate_messages_nodejs
+[  0%] Built target _rospy_message_converter_generate_messages_check_deps_Uint8Array3TestMessage
+[  0%] Built target _rospy_message_converter_generate_messages_check_deps_NestedUint8ArrayTestService
+[  0%] Built target _rospy_message_converter_generate_messages_check_deps_TestArray
+[  0%] Built target _rospy_message_converter_generate_messages_check_deps_NestedUint8ArrayTestMessage
+[  0%] Built target _rospy_message_converter_generate_messages_check_deps_Uint8ArrayTestMessage
+[ 28%] [34m[1mGenerating Lisp code from rospy_message_converter/TestArray.msg[0m
+[ 28%] [34m[1mGenerating EusLisp code from rospy_message_converter/Uint8ArrayTestMessage.msg[0m
+[ 28%] [34m[1mGenerating Lisp code from rospy_message_converter/NestedUint8ArrayTestMessage.msg[0m
+[ 28%] [34m[1mGenerating EusLisp code from rospy_message_converter/NestedUint8ArrayTestMessage.msg[0m
+[ 28%] [34m[1mGenerating Python from MSG rospy_message_converter/NestedUint8ArrayTestMessage[0m
+[ 28%] [34m[1mGenerating EusLisp code from rospy_message_converter/TestArray.msg[0m
+[ 28%] [34m[1mGenerating Python from MSG rospy_message_converter/Uint8Array3TestMessage[0m
+[ 28%] [34m[1mGenerating Javascript code from rospy_message_converter/NestedUint8ArrayTestMessage.msg[0m
+[ 32%] [34m[1mGenerating EusLisp code from rospy_message_converter/Uint8Array3TestMessage.msg[0m
+[ 39%] [34m[1mGenerating Javascript code from rospy_message_converter/TestArray.msg[0m
+[ 39%] [34m[1mGenerating Python from MSG rospy_message_converter/TestArray[0m
+[ 42%] [34m[1mGenerating Lisp code from rospy_message_converter/Uint8Array3TestMessage.msg[0m
+[ 46%] [34m[1mGenerating C++ code from rospy_message_converter/NestedUint8ArrayTestMessage.msg[0m
+[ 50%] [34m[1mGenerating Javascript code from rospy_message_converter/Uint8Array3TestMessage.msg[0m
+[ 57%] [34m[1mGenerating Javascript code from rospy_message_converter/Uint8ArrayTestMessage.msg[0m
+[ 57%] [34m[1mGenerating Lisp code from rospy_message_converter/Uint8ArrayTestMessage.msg[0m
+[ 60%] [34m[1mGenerating C++ code from rospy_message_converter/TestArray.msg[0m
+[ 64%] [34m[1mGenerating Lisp code from rospy_message_converter/NestedUint8ArrayTestService.srv[0m
+[ 67%] [34m[1mGenerating EusLisp code from rospy_message_converter/NestedUint8ArrayTestService.srv[0m
+[ 71%] [34m[1mGenerating Javascript code from rospy_message_converter/NestedUint8ArrayTestService.srv[0m
+[ 75%] [34m[1mGenerating Python from MSG rospy_message_converter/Uint8ArrayTestMessage[0m
+[ 78%] [34m[1mGenerating C++ code from rospy_message_converter/Uint8ArrayTestMessage.msg[0m
+[ 82%] [34m[1mGenerating C++ code from rospy_message_converter/Uint8Array3TestMessage.msg[0m
+[ 85%] [34m[1mGenerating C++ code from rospy_message_converter/NestedUint8ArrayTestService.srv[0m
+[ 89%] [34m[1mGenerating Python code from SRV rospy_message_converter/NestedUint8ArrayTestService[0m
+[ 89%] Built target rospy_message_converter_generate_messages_lisp
+[ 89%] Built target rospy_message_converter_generate_messages_nodejs
+[ 92%] Built target rospy_message_converter_generate_messages_eus
+[ 92%] Built target rospy_message_converter_generate_messages_cpp
+[ 96%] [34m[1mGenerating Python msg __init__.py for rospy_message_converter[0m
+[100%] [34m[1mGenerating Python srv __init__.py for rospy_message_converter[0m
+[100%] Built target rospy_message_converter_generate_messages_py
+[100%] Built target rospy_message_converter_generate_messages

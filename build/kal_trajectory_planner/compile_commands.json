@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/yzz/kal_ws/build/kal_trajectory_planner",
+  "command": "/usr/bin/c++  -DROS_BUILD_SHARED_LIBS=1 -I/home/yzz/kal_ws/src/kal_trajectory_planner/include/kal_trajectory_planner -I/home/yzz/kal_ws/src/kal_trajectory_planner/include -I/home/yzz/kal_ws/devel/.private/kal_trajectory_planner/include -I/home/yzz/kal_ws/build/kal_trajectory_planner/tests -I/usr/include/eigen3 -isystem /usr/src/googletest/googletest/include -isystem /usr/src/googletest/googletest    -DGTEST_HAS_PTHREAD=1 -fopenmp -o CMakeFiles/kal_trajectory_planner-gtest-test_utils.dir/test/test_utils.cpp.o -c /home/yzz/kal_ws/src/kal_trajectory_planner/test/test_utils.cpp",
+  "file": "/home/yzz/kal_ws/src/kal_trajectory_planner/test/test_utils.cpp"
+},
+{
+  "directory": "/home/yzz/kal_ws/build/kal_trajectory_planner",
+  "command": "/usr/bin/c++  -DROS_BUILD_SHARED_LIBS=1 -I/home/yzz/kal_ws/src/kal_trajectory_planner/include/kal_trajectory_planner -I/home/yzz/kal_ws/src/kal_trajectory_planner/include -I/home/yzz/kal_ws/devel/.private/kal_trajectory_planner/include -I/home/yzz/kal_ws/build/kal_trajectory_planner/tests -I/usr/include/eigen3 -isystem /usr/src/googletest/googletest/include -isystem /usr/src/googletest/googletest    -DGTEST_HAS_PTHREAD=1 -fopenmp -o CMakeFiles/kal_trajectory_planner-gtest-test_trajectory_planner.dir/test/test_trajectory_planner.cpp.o -c /home/yzz/kal_ws/src/kal_trajectory_planner/test/test_trajectory_planner.cpp",
+  "file": "/home/yzz/kal_ws/src/kal_trajectory_planner/test/test_trajectory_planner.cpp"
+},
+{
+  "directory": "/home/yzz/kal_ws/build/kal_trajectory_planner",
+  "command": "/usr/bin/c++  -DROS_BUILD_SHARED_LIBS=1 -Dkal_trajectory_planner_EXPORTS -I/home/yzz/kal_ws/src/kal_trajectory_planner/include/kal_trajectory_planner -I/home/yzz/kal_ws/src/kal_trajectory_planner/include -I/home/yzz/kal_ws/devel/.private/kal_trajectory_planner/include -I/usr/include/eigen3  -fPIC   -fopenmp -o CMakeFiles/kal_trajectory_planner.dir/src/trajectory_planner.cpp.o -c /home/yzz/kal_ws/src/kal_trajectory_planner/src/trajectory_planner.cpp",
+  "file": "/home/yzz/kal_ws/src/kal_trajectory_planner/src/trajectory_planner.cpp"
+}
+]

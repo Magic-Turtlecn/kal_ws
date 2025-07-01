@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/yzz/kal_ws/devel/.private/rospy_message_converter/setup.sh

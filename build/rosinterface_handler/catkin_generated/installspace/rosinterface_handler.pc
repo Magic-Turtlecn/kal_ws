@@ -1,0 +1,8 @@
+prefix=/home/yzz/kal_ws/install
+
+Name: rosinterface_handler
+Description: Description of rosinterface_handler
+Version: 0.2.1
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: catkin

@@ -1,0 +1,30 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~int_param_w_default" : \b [int] An Integer parameter min: -2147483648, default: 1, max: 2147483647
+- \b "~enum_int_param_w_default" : \b [int] enum min: -2147483648, default: 1, max: 2147483647
+- \b "~enum_str_param_w_default" : \b [str] string enum min: , default: One, max: 
+- \b "~publisher_w_default_topic" : \b [str] Topic for publisher min: , default: out_topic, max: 
+- \b "~publisher_w_default_queue_size" : \b [int] Queue size for publisher min: 0, default: 5, max: 2147483647
+- \b "~publisher_diag_w_default_topic" : \b [str] Topic for publisher min: , default: out_point_topic, max: 
+- \b "~publisher_diag_w_default_queue_size" : \b [int] Queue size for publisher min: 0, default: 5, max: 2147483647
+- \b "~publisher_diag_w_default_min_frequency" : \b [double] Minimal message frequency for publisher min: -std::numeric_limits<double>::infinity(), default: 0.0, max: std::numeric_limits<double>::infinity()
+- \b "~publisher_diag_w_default_max_delay" : \b [double] Maximal delay for publisher min: -std::numeric_limits<double>::infinity(), default: 1e+308, max: std::numeric_limits<double>::infinity()
+- \b "~publisher_public_w_default_topic" : \b [str] Topic for public publisher min: , default: out_topic, max: 
+- \b "~publisher_public_w_default_queue_size" : \b [int] Queue size for public publisher min: 0, default: 5, max: 2147483647
+- \b "~publisher_global_w_default_topic" : \b [str] Topic for global publisher min: , default: out_topic, max: 
+- \b "~publisher_global_w_default_queue_size" : \b [int] Queue size for global publisher min: 0, default: 5, max: 2147483647
+- \b "~subscriber_w_default_topic" : \b [str] Topic for subscriber min: , default: in_topic, max: 
+- \b "~subscriber_w_default_queue_size" : \b [int] Queue size for subscriber min: 0, default: 5, max: 2147483647
+- \b "~subscriber_diag_w_default_topic" : \b [str] Topic for subscriber min: , default: in_point_topic, max: 
+- \b "~subscriber_diag_w_default_queue_size" : \b [int] Queue size for subscriber min: 0, default: 5, max: 2147483647
+- \b "~subscriber_diag_w_default_min_frequency" : \b [double] Minimal message frequency for subscriber min: -std::numeric_limits<double>::infinity(), default: 0.0, max: std::numeric_limits<double>::infinity()
+- \b "~subscriber_diag_w_default_max_delay" : \b [double] Maximal delay for subscriber min: -std::numeric_limits<double>::infinity(), default: 1e+308, max: std::numeric_limits<double>::infinity()
+- \b "~subscriber_public_w_default_topic" : \b [str] Topic for public subscriber min: , default: in_topic, max: 
+- \b "~subscriber_public_w_default_queue_size" : \b [int] Queue size for public subscriber min: 0, default: 5, max: 2147483647
+- \b "~subscriber_global_w_default_topic" : \b [str] Topic for global subscriber min: , default: in_topic, max: 
+- \b "~subscriber_global_w_default_queue_size" : \b [int] Queue size for global subscriber min: 0, default: 5, max: 2147483647
+- \b "~subscriber_smart_topic" : \b [str] Topic for smart subscriber min: , default: in_topic2, max: 
+- \b "~subscriber_smart_queue_size" : \b [int] Queue size for smart subscriber min: 0, default: 5, max: 2147483647
+

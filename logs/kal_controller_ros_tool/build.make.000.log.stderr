@@ -1,0 +1,81 @@
+In file included from [01m[K/home/yzz/kal_ws/src/kal_controller/include/kal_controller/controller.hpp:3[m[K,
+                 from [01m[K/home/yzz/kal_ws/src/kal_controller_ros_tool/src/controller/controller.hpp:10[m[K,
+                 from [01m[K/home/yzz/kal_ws/src/kal_controller_ros_tool/src/controller/controller_nodelet.cpp:4[m[K:
+[01m[K/home/yzz/kal_ws/src/kal_controller/include/kal_controller/types.hpp:40:10:[m[K [01;31m[Kerror: [m[K‘[01m[Koptional[m[K’ in namespace ‘[01m[Kstd[m[K’ does not name a template type
+   40 |     std::[01;31m[Koptional[m[K<DebugInfo> debugInfo;
+      |          [01;31m[K^~~~~~~~[m[K
+[01m[K/home/yzz/kal_ws/src/kal_controller/include/kal_controller/types.hpp:40:5:[m[K [01;36m[Knote: [m[K‘[01m[Kstd::optional[m[K’ is only available from C++17 onwards
+   40 |     [01;36m[Kstd[m[K::optional<DebugInfo> debugInfo;
+      |     [01;36m[K^~~[m[K
+In file included from [01m[K/home/yzz/kal_ws/src/kal_controller/include/kal_controller/controller.hpp:3[m[K,
+                 from [01m[K/home/yzz/kal_ws/src/kal_controller_ros_tool/src/controller/controller.hpp:10[m[K,
+                 from [01m[K/home/yzz/kal_ws/src/kal_controller_ros_tool/src/controller/controller.cpp:1[m[K:
+[01m[K/home/yzz/kal_ws/src/kal_controller/include/kal_controller/types.hpp:40:10:[m[K [01;31m[Kerror: [m[K‘[01m[Koptional[m[K’ in namespace ‘[01m[Kstd[m[K’ does not name a template type
+   40 |     std::[01;31m[Koptional[m[K<DebugInfo> debugInfo;
+      |          [01;31m[K^~~~~~~~[m[K
+[01m[K/home/yzz/kal_ws/src/kal_controller/include/kal_controller/types.hpp:40:5:[m[K [01;36m[Knote: [m[K‘[01m[Kstd::optional[m[K’ is only available from C++17 onwards
+   40 |     [01;36m[Kstd[m[K::optional<DebugInfo> debugInfo;
+      |     [01;36m[K^~~[m[K
+In file included from [01m[K/home/yzz/kal_ws/devel/.private/kal_controller_ros_tool/include/kal_controller_ros_tool/ControllerInterface.h:18[m[K,
+                 from [01m[K/home/yzz/kal_ws/src/kal_controller_ros_tool/src/controller/controller.hpp:13[m[K,
+                 from [01m[K/home/yzz/kal_ws/src/kal_controller_ros_tool/src/controller/controller_nodelet.cpp:4[m[K:
+[01m[K/home/yzz/kal_ws/src/rosinterface_handler/include/rosinterface_handler/utilities.hpp:[m[K In function ‘[01m[Kstd::string rosinterface_handler::asString(Arg&&, Args&& ...)[m[K’:
+[01m[K/home/yzz/kal_ws/src/rosinterface_handler/include/rosinterface_handler/utilities.hpp:362:44:[m[K [01;35m[Kwarning: [m[Kfold-expressions only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+  362 |     (oss << ... << std::forward<Args>(Args_[01;35m[K)[m[K);
+      |                                            [01;35m[K^[m[K
+In file included from [01m[K/home/yzz/kal_ws/devel/.private/kal_controller_ros_tool/include/kal_controller_ros_tool/ControllerInterface.h:18[m[K,
+                 from [01m[K/home/yzz/kal_ws/src/kal_controller_ros_tool/src/controller/controller.hpp:13[m[K,
+                 from [01m[K/home/yzz/kal_ws/src/kal_controller_ros_tool/src/controller/controller.cpp:1[m[K:
+[01m[K/home/yzz/kal_ws/src/rosinterface_handler/include/rosinterface_handler/utilities.hpp:[m[K In function ‘[01m[Kstd::string rosinterface_handler::asString(Arg&&, Args&& ...)[m[K’:
+[01m[K/home/yzz/kal_ws/src/rosinterface_handler/include/rosinterface_handler/utilities.hpp:362:44:[m[K [01;35m[Kwarning: [m[Kfold-expressions only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+  362 |     (oss << ... << std::forward<Args>(Args_[01;35m[K)[m[K);
+      |                                            [01;35m[K^[m[K
+In file included from [01m[K/home/yzz/kal_ws/src/kal_controller_ros_tool/src/controller/controller_nodelet.cpp:4[m[K:
+[01m[K/home/yzz/kal_ws/src/kal_controller_ros_tool/src/controller/controller.hpp:[m[K At global scope:
+[01m[K/home/yzz/kal_ws/src/kal_controller_ros_tool/src/controller/controller.hpp:94:10:[m[K [01;31m[Kerror: [m[K‘[01m[Koptional[m[K’ in namespace ‘[01m[Kstd[m[K’ does not name a template type
+   94 |     std::[01;31m[Koptional[m[K<Trajectory> trajectory_{std::nullopt};
+      |          [01;31m[K^~~~~~~~[m[K
+[01m[K/home/yzz/kal_ws/src/kal_controller_ros_tool/src/controller/controller.hpp:94:5:[m[K [01;36m[Knote: [m[K‘[01m[Kstd::optional[m[K’ is only available from C++17 onwards
+   94 |     [01;36m[Kstd[m[K::optional<Trajectory> trajectory_{std::nullopt};
+      |     [01;36m[K^~~[m[K
+In file included from [01m[K/home/yzz/kal_ws/src/kal_controller_ros_tool/src/controller/controller.cpp:1[m[K:
+[01m[K/home/yzz/kal_ws/src/kal_controller_ros_tool/src/controller/controller.hpp:[m[K At global scope:
+[01m[K/home/yzz/kal_ws/src/kal_controller_ros_tool/src/controller/controller.hpp:94:10:[m[K [01;31m[Kerror: [m[K‘[01m[Koptional[m[K’ in namespace ‘[01m[Kstd[m[K’ does not name a template type
+   94 |     std::[01;31m[Koptional[m[K<Trajectory> trajectory_{std::nullopt};
+      |          [01;31m[K^~~~~~~~[m[K
+[01m[K/home/yzz/kal_ws/src/kal_controller_ros_tool/src/controller/controller.hpp:94:5:[m[K [01;36m[Knote: [m[K‘[01m[Kstd::optional[m[K’ is only available from C++17 onwards
+   94 |     [01;36m[Kstd[m[K::optional<Trajectory> trajectory_{std::nullopt};
+      |     [01;36m[K^~~[m[K
+[01m[K/home/yzz/kal_ws/src/kal_controller_ros_tool/src/controller/controller.cpp:[m[K In member function ‘[01m[Kvoid kal_controller_ros_tool::ControllerNode::trajectoryCallback(const ConstPtr&)[m[K’:
+[01m[K/home/yzz/kal_ws/src/kal_controller_ros_tool/src/controller/controller.cpp:44:5:[m[K [01;31m[Kerror: [m[K‘[01m[Ktrajectory_[m[K’ was not declared in this scope; did you mean ‘[01m[KtrajectoryMsg[m[K’?
+   44 |     [01;31m[Ktrajectory_[m[K = conversions::trajectoryMsgToTrajectory(trajectoryMsg);
+      |     [01;31m[K^~~~~~~~~~~[m[K
+      |     [32m[KtrajectoryMsg[m[K
+[01m[K/home/yzz/kal_ws/src/kal_controller_ros_tool/src/controller/controller.cpp:[m[K In member function ‘[01m[Kvoid kal_controller_ros_tool::ControllerNode::controlLoopCallback(const ros::TimerEvent&)[m[K’:
+[01m[K/home/yzz/kal_ws/src/kal_controller_ros_tool/src/controller/controller.cpp:66:53:[m[K [01;31m[Kerror: [m[K‘[01m[Ktrajectory_[m[K’ was not declared in this scope; did you mean ‘[01m[KtrajectoryStamp_[m[K’?
+   66 |         controller_.getControlCommand(vehiclePose, *[01;31m[Ktrajectory_[m[K, interface_.publish_debug_info);
+      |                                                     [01;31m[K^~~~~~~~~~~[m[K
+      |                                                     [32m[KtrajectoryStamp_[m[K
+[01m[K/home/yzz/kal_ws/src/kal_controller_ros_tool/src/controller/controller.cpp:74:24:[m[K [01;31m[Kerror: [m[K‘[01m[Kstruct kal_controller::ControlCommand[m[K’ has no member named ‘[01m[KdebugInfo[m[K’; did you mean ‘[01m[KDebugInfo[m[K’?
+   74 |     if (controlCommand.[01;31m[KdebugInfo[m[K) {
+      |                        [01;31m[K^~~~~~~~~[m[K
+      |                        [32m[KDebugInfo[m[K
+[01m[K/home/yzz/kal_ws/src/kal_controller_ros_tool/src/controller/controller.cpp:75:41:[m[K [01;31m[Kerror: [m[K‘[01m[Kstruct kal_controller::ControlCommand[m[K’ has no member named ‘[01m[KdebugInfo[m[K’; did you mean ‘[01m[KDebugInfo[m[K’?
+   75 |         publishDebugInfo(controlCommand.[01;31m[KdebugInfo[m[K.value(), stamp);
+      |                                         [01;31m[K^~~~~~~~~[m[K
+      |                                         [32m[KDebugInfo[m[K
+[01m[K/home/yzz/kal_ws/src/kal_controller_ros_tool/src/controller/controller.cpp:[m[K In member function ‘[01m[Kbool kal_controller_ros_tool::ControllerNode::checkTrajectoryExists() const[m[K’:
+[01m[K/home/yzz/kal_ws/src/kal_controller_ros_tool/src/controller/controller.cpp:106:10:[m[K [01;31m[Kerror: [m[K‘[01m[Ktrajectory_[m[K’ was not declared in this scope; did you mean ‘[01m[KtrajectoryStamp_[m[K’?
+  106 |     if (![01;31m[Ktrajectory_[m[K) {
+      |          [01;31m[K^~~~~~~~~~~[m[K
+      |          [32m[KtrajectoryStamp_[m[K
+[01m[K/home/yzz/kal_ws/src/kal_controller_ros_tool/src/controller/controller.cpp:[m[K In member function ‘[01m[Kbool kal_controller_ros_tool::ControllerNode::checkTrajectoryLength() const[m[K’:
+[01m[K/home/yzz/kal_ws/src/kal_controller_ros_tool/src/controller/controller.cpp:131:9:[m[K [01;31m[Kerror: [m[K‘[01m[Ktrajectory_[m[K’ was not declared in this scope; did you mean ‘[01m[KtrajectoryStamp_[m[K’?
+  131 |     if ([01;31m[Ktrajectory_[m[K->size() < trajectoryMinimumLength) {
+      |         [01;31m[K^~~~~~~~~~~[m[K
+      |         [32m[KtrajectoryStamp_[m[K
+make[2]: *** [CMakeFiles/kal_controller_ros_tool-controller-nodelet.dir/build.make:76: CMakeFiles/kal_controller_ros_tool-controller-nodelet.dir/src/controller/controller_nodelet.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[2]: *** [CMakeFiles/kal_controller_ros_tool-controller-nodelet.dir/build.make:63: CMakeFiles/kal_controller_ros_tool-controller-nodelet.dir/src/controller/controller.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:377: CMakeFiles/kal_controller_ros_tool-controller-nodelet.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2
