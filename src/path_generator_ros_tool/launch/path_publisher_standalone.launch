@@ -1,0 +1,8 @@
+<launch>
+
+  <include file="$(find path_generator_ros_tool)/launch/path_publisher.launch">
+      <arg name="path_topic" value="/path"/>
+      <arg name="path_file" value="$(find path_generator_ros_tool)/res/path.yaml"/>
+  </include>
+
+</launch>

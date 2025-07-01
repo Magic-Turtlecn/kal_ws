@@ -1,0 +1,10 @@
+<launch>
+
+  <!-- Set these parameters in a higher level launch file -->
+  <arg name="path_file" />
+  <arg name="path_topic"/>
+
+  <!-- Publish the path from a yaml file -->
+  <node pkg="rostopic" type="rostopic" name="path_publisher" args="pub -l -f $(arg path_file) $(arg path_topic) nav_msgs/Path" output="screen"/>
+
+</launch>
