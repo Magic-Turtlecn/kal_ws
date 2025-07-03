@@ -72,8 +72,9 @@ ControlCommand Controller::getControlCommand(const Pose& vehiclePose,
     size_t indexForCurvatureEstimation = std::clamp(
         indexOfClosestPointOnTrajectory + adaptiveLookAheadIndex, static_cast<size_t>(2), trajectory.size() - 3);
     
-    // Use 5-point curvature estimation for better smoothness
+    // Use improved 5-point curvature estimation with Gaussian-like weights for smoother results
     std::vector<double> curvatures;
+    std::vector<double> weights = {0.15, 0.7, 0.15};  // More weight to center, Gaussian-like distribution
     for (int offset = -1; offset <= 1; offset++) {
         size_t idx = std::clamp(static_cast<int>(indexForCurvatureEstimation) + offset, 
                                static_cast<int>(1), static_cast<int>(trajectory.size() - 2));
@@ -82,8 +83,14 @@ ControlCommand Controller::getControlCommand(const Pose& vehiclePose,
         Position nextPoint = trajectory[idx + 1].pose.translation();
         curvatures.push_back(utils::discreteCurvature(prevPoint, currPoint, nextPoint));
     }
-    // Weighted average of curvatures (center point gets higher weight)
-    double curvature = 0.25 * curvatures[0] + 0.5 * curvatures[1] + 0.25 * curvatures[2];
+    // Weighted average of curvatures with improved weights
+    double curvature = weights[0] * curvatures[0] + weights[1] * curvatures[1] + weights[2] * curvatures[2];
+    
+    // Apply curvature smoothing to prevent sudden changes
+    static double previousCurvature = 0.0;
+    double curvatureSmoothingFactor = 0.6;  // Smooth curvature changes
+    curvature = curvatureSmoothingFactor * curvature + (1.0 - curvatureSmoothingFactor) * previousCurvature;
+    previousCurvature = curvature;
     
     Position lookAheadPoint = trajectory[indexForCurvatureEstimation].pose.translation();
 
@@ -98,41 +105,75 @@ ControlCommand Controller::getControlCommand(const Pose& vehiclePose,
         vehiclePose.translation(),
         std::make_tuple(firstStampedPose.pose.translation(), secondStampedPose.pose.translation()));
 
-    // Speed-adaptive control gains to prevent oscillation at high speeds
-    double speedAdaptiveKDistance = parameters_.kDistance / (1.0 + speed * 0.3);
-    double speedAdaptiveKAngle = parameters_.kAngle / (1.0 + speed * 0.2);
+    // Enhanced speed-adaptive control gains with dynamic error-based adjustment
+    double errorMagnitude = std::sqrt(errorSignedDistance * errorSignedDistance + errorAngle * errorAngle);
+    double errorAdaptiveGain = 1.0 + std::min(2.0, errorMagnitude * 0.5);  // Increase gains for larger errors
+    double speedAdaptiveKDistance = parameters_.kDistance * errorAdaptiveGain / (1.0 + speed * 0.3);
+    double speedAdaptiveKAngle = parameters_.kAngle * errorAdaptiveGain / (1.0 + speed * 0.2);
     
-    // Predictive control: consider future trajectory points for better anticipation
+    // Enhanced predictive control with speed-dependent horizon
     double predictiveError = 0.0;
     if (indexForCurvatureEstimation + 2 < trajectory.size()) {
-        // Look 2 more points ahead for predictive control
-        size_t futureIndex = std::min(indexForCurvatureEstimation + 2, trajectory.size() - 1);
+        // Dynamic prediction horizon based on speed
+        size_t predictionHorizon = std::max(2, static_cast<int>(2 + speed * 0.5));  // Longer horizon at higher speeds
+        size_t futureIndex = std::min(indexForCurvatureEstimation + predictionHorizon, trajectory.size() - 1);
         Position futurePoint = trajectory[futureIndex].pose.translation();
         Position currentPos = vehiclePose.translation();
         
-        // Calculate predicted lateral error
+        // Calculate predicted lateral error with improved direction estimation
         Eigen::Vector2d futureDirection = futurePoint - lookAheadPoint;
         if (futureDirection.norm() > 0.1) {  // Avoid division by near-zero
             futureDirection.normalize();
             Eigen::Vector2d vehicleToFuture = futurePoint - currentPos;
             predictiveError = futureDirection.x() * vehicleToFuture.y() - futureDirection.y() * vehicleToFuture.x();
-            predictiveError *= 0.3;  // Scale down predictive term
+            
+            // Speed-dependent predictive scaling
+            double predictiveScale = 0.2 + speed * 0.05;  // Higher prediction influence at higher speeds
+            predictiveScale = std::min(predictiveScale, 0.4);  // Cap at 0.4
+            predictiveError *= predictiveScale;
         }
     }
     
-    // Enhanced control law with adaptive gains and predictive control
+    // Enhanced control law with deadband for small errors to reduce jitter
     double feedforwardControl = curvature;
-    double lateralFeedback = speedAdaptiveKDistance * (errorSignedDistance + predictiveError);
-    double angularFeedback = speedAdaptiveKAngle * errorAngle;
     
-    // Low-pass filter for smoother control (simple exponential filter)
+    // Apply deadband to lateral error to prevent jitter from small errors
+    double adjustedLateralError = errorSignedDistance + predictiveError;
+    if (std::abs(adjustedLateralError) < 0.02) {  // 2cm deadband
+        adjustedLateralError *= 0.3;  // Reduce response for very small errors
+    }
+    
+    // Apply deadband to angular error
+    double adjustedAngularError = errorAngle;
+    if (std::abs(adjustedAngularError) < 0.02) {  // ~1.1 degree deadband
+        adjustedAngularError *= 0.3;  // Reduce response for very small errors
+    }
+    
+    double lateralFeedback = speedAdaptiveKDistance * adjustedLateralError;
+    double angularFeedback = speedAdaptiveKAngle * adjustedAngularError;
+    
+    // Adaptive low-pass filter with speed-dependent coefficients
     static double previousU = 0.0;
     double currentU = feedforwardControl - lateralFeedback - angularFeedback;
-    double filteredU = 0.7 * currentU + 0.3 * previousU;  // 70% current, 30% previous
+    
+    // More aggressive filtering at high speeds, less at low speeds
+    double filterCoeff = 0.5 + speed * 0.1;  // 0.5 to 0.7 range
+    filterCoeff = std::min(filterCoeff, 0.8);  // Cap at 0.8
+    double filteredU = filterCoeff * currentU + (1.0 - filterCoeff) * previousU;
     previousU = filteredU;
     
     double steeringAngle = std::atan(parameters_.wheelBase * filteredU);
+    
+    // Add rate limiting to prevent sudden steering changes
+    static double previousSteeringAngle = 0.0;
+    double maxSteeringRate = 0.5;  // Maximum change per control cycle (radians)
+    double steeringChange = steeringAngle - previousSteeringAngle;
+    if (std::abs(steeringChange) > maxSteeringRate) {
+        steeringAngle = previousSteeringAngle + std::copysign(maxSteeringRate, steeringChange);
+    }
+    
     steeringAngle = std::clamp(steeringAngle, -parameters_.steeringAngleMax, parameters_.steeringAngleMax);
+    previousSteeringAngle = steeringAngle;
 
     std::optional<ControlCommand::DebugInfo> debugInfo;
     if (returnDebugInfo) {
