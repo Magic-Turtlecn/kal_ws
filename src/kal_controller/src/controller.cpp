@@ -25,8 +25,29 @@ ControlCommand Controller::getControlCommand(const Pose& vehiclePose,
     StampedPose secondStampedPose = trajectory[indexForEstimation + 1];
     double desiredSpeed = utils::computeDesiredSpeed(firstStampedPose, secondStampedPose);
 
+    // Initial curvature calculation for adaptive speed adjustment
+    size_t speedCurvatureIndex = std::clamp(
+        indexOfClosestPointOnTrajectory + 1, static_cast<size_t>(1), trajectory.size() - 2);
+    Position speedPrevPoint = trajectory[speedCurvatureIndex - 1].pose.translation();
+    Position speedCurrPoint = trajectory[speedCurvatureIndex].pose.translation();
+    Position speedNextPoint = trajectory[speedCurvatureIndex + 1].pose.translation();
+    double speedCurvature = utils::discreteCurvature(speedPrevPoint, speedCurrPoint, speedNextPoint);
+    
+    // Adaptive speed reduction in curves for smoother cornering
+    double curvatureSpeedFactor = 1.0;
+    if (std::abs(speedCurvature) > 0.05) {  // Apply speed reduction for curves
+        // Reduce speed proportionally to curvature magnitude
+        // Higher curvature = more speed reduction
+        double curvatureMagnitude = std::abs(speedCurvature);
+        curvatureSpeedFactor = 1.0 / (1.0 + curvatureMagnitude * 3.0);  // Adjustable factor
+        curvatureSpeedFactor = std::max(curvatureSpeedFactor, 0.3);  // Minimum 30% of original speed
+    }
+    
+    // Apply smooth speed adjustment
+    double adjustedSpeed = desiredSpeed * curvatureSpeedFactor;
+    
     // Stop the car if the speed is below the minimum speed threshold
-    double speed = desiredSpeed < parameters_.minVelocityThreshold ? 0 : desiredSpeed;
+    double speed = adjustedSpeed < parameters_.minVelocityThreshold ? 0 : adjustedSpeed;
 
     // Compute adaptive look-ahead distance based on speed and initial curvature estimate
     if (parameters_.lookAheadIndex < 1) {
