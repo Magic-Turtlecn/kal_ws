@@ -62,7 +62,7 @@ ControlCommand Controller::getControlCommand(const Pose& vehiclePose,
         curvatures.push_back(utils::discreteCurvature(prevPoint, currPoint, nextPoint));
     }
     // Weighted average of curvatures (center point gets higher weight)
-    double curvature = 0.25 * curvatures[0] + 0.5 * curvatures[1] + 0.25 * curvatures[2];
+    double curvature = 0.15 * curvatures[0] + 0.7 * curvatures[1] + 0.15 * curvatures[2];
     
     Position lookAheadPoint = trajectory[indexForCurvatureEstimation].pose.translation();
 
