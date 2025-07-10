@@ -3,6 +3,7 @@
 #include <optional>
 #include <dynamic_reconfigure/server.h>
 #include <nav_msgs/Path.h>
+#include <std_msgs/Char.h>
 #include <ros/ros.h>
 #include <ros/time.h>
 #include <tf2_ros/transform_listener.h>
@@ -29,6 +30,13 @@ private:
      * @param pathMsg
      */
     void trajectoryCallback(const nav_msgs::Path::ConstPtr& msg);
+
+    /**
+     * @brief Callback to receive navigator state machine messages.
+     *
+     * @param msg
+     */
+    void navigatorCallback(const std_msgs::Char::ConstPtr& msg);
 
     /**
      * @brief Timed callback to compute control commands from current trajectory and vehicle pose
@@ -93,6 +101,11 @@ private:
     Controller controller_{};
     std::optional<Trajectory> trajectory_{std::nullopt};
     ros::Time trajectoryStamp_{0};
+
+    // Stop control variables
+    bool shouldStop_{false};
+    ros::Time stopStartTime_{0};
+    static constexpr double STOP_DURATION_SECONDS = 3.0;
 
     ros::Timer controlLoopTimer_;
     tf2_ros::Buffer tfBuffer_;

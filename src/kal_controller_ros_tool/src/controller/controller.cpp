@@ -26,6 +26,7 @@ ControllerNode::ControllerNode(const ros::NodeHandle& nhPrivate)
      */
     reconfigureServer_.setCallback(boost::bind(&ControllerNode::reconfigureCallback, this, _1, _2));
     interface_.trajectory_subscriber->registerCallback(&ControllerNode::trajectoryCallback, this);
+    interface_.navigator_subscriber->registerCallback(&ControllerNode::navigatorCallback, this);
     controlLoopTimer_ =
         nhPrivate.createTimer(ros::Rate(interface_.control_loop_rate), &ControllerNode::controlLoopCallback, this);
 
@@ -44,7 +45,29 @@ void ControllerNode::trajectoryCallback(const nav_msgs::Path::ConstPtr& trajecto
     trajectory_ = conversions::trajectoryMsgToTrajectory(trajectoryMsg);
 }
 
+void ControllerNode::navigatorCallback(const std_msgs::Char::ConstPtr& msg) {
+    if (msg->data == 's') {
+        interface_.logInfo("Received stop command from navigator. Stopping for 3 seconds.");
+        shouldStop_ = true;
+        stopStartTime_ = ros::Time::now();
+    }
+}
+
 void ControllerNode::controlLoopCallback(const ros::TimerEvent& timerEvent) {
+    // Check if we should stop due to navigator command
+    if (shouldStop_) {
+        double stopDuration = (ros::Time::now() - stopStartTime_).toSec();
+        if (stopDuration < STOP_DURATION_SECONDS) {
+            // Still within stop period, publish stop command
+            publishStopCommand();
+            return;
+        } else {
+            // Stop period finished, resume normal operation
+            interface_.logInfo("3-second stop completed. Resuming normal operation.");
+            shouldStop_ = false;
+        }
+    }
+
     if (!checkTrajectoryExists()) {
         return;
     }
