@@ -41,11 +41,8 @@ ControlCommand Controller::getControlCommand(const Pose& vehiclePose,
     Position initNextPoint = trajectory[initialCurvatureIndex + 1].pose.translation();
     double initialCurvature = utils::discreteCurvature(initPrevPoint, initCurrPoint, initNextPoint);
     
-    // Adaptive look-ahead index calculation
-    double speedFactor = std::max(0.5, std::min(2.0, speed / 2.0));  // Speed factor between 0.5-2.0
-    double curvatureFactor = 1.0 / (1.0 + std::abs(initialCurvature) * 20.0);  // Reduce look-ahead in curves
-    size_t adaptiveLookAheadIndex = std::max(static_cast<size_t>(1), 
-        static_cast<size_t>(parameters_.lookAheadIndex * speedFactor * curvatureFactor));
+    // Fixed look-ahead index (speed controlled externally)
+    size_t adaptiveLookAheadIndex = parameters_.lookAheadIndex;
     
     // Compute improved trajectory curvature using multiple points for smoothing
     size_t indexForCurvatureEstimation = std::clamp(
@@ -77,12 +74,14 @@ ControlCommand Controller::getControlCommand(const Pose& vehiclePose,
         vehiclePose.translation(),
         std::make_tuple(firstStampedPose.pose.translation(), secondStampedPose.pose.translation()));
 
-    // Speed-adaptive control gains to prevent oscillation at high speeds
-    double speedAdaptiveKDistance = parameters_.kDistance / (1.0 + speed * 0.3);
-    double speedAdaptiveKAngle = parameters_.kAngle / (1.0 + speed * 0.2);
+    // Use fixed control gains (speed controlled externally)
+    double speedAdaptiveKDistance = parameters_.kDistance;
+    double speedAdaptiveKAngle = parameters_.kAngle;
     
     // Predictive control: consider future trajectory points for better anticipation
     double predictiveError = 0.0;
+    // Temporarily disable predictive control for debugging
+    /*
     if (indexForCurvatureEstimation + 2 < trajectory.size()) {
         // Look 2 more points ahead for predictive control
         size_t futureIndex = std::min(indexForCurvatureEstimation + 2, trajectory.size() - 1);
@@ -94,21 +93,55 @@ ControlCommand Controller::getControlCommand(const Pose& vehiclePose,
         if (futureDirection.norm() > 0.1) {  // Avoid division by near-zero
             futureDirection.normalize();
             Eigen::Vector2d vehicleToFuture = futurePoint - currentPos;
-            predictiveError = futureDirection.x() * vehicleToFuture.y() - futureDirection.y() * vehicleToFuture.x();
-            predictiveError *= 0.3;  // Scale down predictive term
+            double rawPredictiveError = futureDirection.x() * vehicleToFuture.y() - futureDirection.y() * vehicleToFuture.x();
+            
+            // Reduce predictive control influence for small field with sharp turns
+            double curvatureMagnitude = std::abs(curvature);
+            // Lower gain overall for small field, higher gain only for very sharp turns
+            double predictiveGain = std::min(0.15, curvatureMagnitude * 0.8 + 0.05);
+            predictiveError = rawPredictiveError * predictiveGain;
         }
     }
+    */
     
     // Enhanced control law with adaptive gains and predictive control
     double feedforwardControl = curvature;
     double lateralFeedback = speedAdaptiveKDistance * (errorSignedDistance + predictiveError);
     double angularFeedback = speedAdaptiveKAngle * errorAngle;
     
-    // Low-pass filter for smoother control (simple exponential filter)
-    static double previousU = 0.0;
+    // Debug: print values for troubleshooting
+    // std::cout << "errorSignedDistance: " << errorSignedDistance << std::endl;
+    // std::cout << "predictiveError: " << predictiveError << std::endl;
+    // std::cout << "feedforwardControl: " << feedforwardControl << std::endl;
+    // std::cout << "lateralFeedback: " << lateralFeedback << std::endl;
+    // std::cout << "angularFeedback: " << angularFeedback << std::endl;
+    
     double currentU = feedforwardControl - lateralFeedback - angularFeedback;
-    double filteredU = 0.7 * currentU + 0.3 * previousU;  // 70% current, 30% previous
+    
+    // Improved adaptive filtering with proper state management
+    // Use static variable approach for filtering
+    static double previousU = 0.0;
+    static double previousCurvature = 0.0;
+    
+    // Detect curvature change rate to adjust filter aggressiveness
+    double curvatureChangeRate = std::abs(curvature - previousCurvature);
+    double adaptiveFilterWeight = std::max(0.4, std::min(0.8, 1.0 - curvatureChangeRate * 2.0));
+    
+    // Reset filter when transitioning from curve to straight
+    bool isTransitionToStraight = (std::abs(previousCurvature) > 0.5 && std::abs(curvature) < 0.2);
+    if (isTransitionToStraight) {
+        adaptiveFilterWeight = 0.85;
+    }
+    
+    double filteredU = adaptiveFilterWeight * currentU + (1.0 - adaptiveFilterWeight) * previousU;
+    
+    // Additional overshoot prevention
+    if ((currentU > 0.2 && previousU < -0.2) || (currentU < -0.2 && previousU > 0.2)) {
+        filteredU = 0.7 * currentU + 0.3 * previousU;
+    }
+    
     previousU = filteredU;
+    previousCurvature = curvature;
     
     double steeringAngle = std::atan(parameters_.wheelBase * filteredU);
     steeringAngle = std::clamp(steeringAngle, -parameters_.steeringAngleMax, parameters_.steeringAngleMax);
@@ -127,6 +160,8 @@ ControlCommand Controller::getControlCommand(const Pose& vehiclePose,
 
     return {speed, steeringAngle, debugInfo};
 }
+
+
 
 void Controller::throwIfParametersNotInitialized() const {
     if (!parameterInitialized_) {
