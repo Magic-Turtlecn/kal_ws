@@ -1,1 +1,0 @@
-/home/yzz/kal_ws/devel/.private/rosinterface_handler/lib/python3/dist-packages/rosinterface_handler/cfg/DefaultsAtLaunchConfig.py

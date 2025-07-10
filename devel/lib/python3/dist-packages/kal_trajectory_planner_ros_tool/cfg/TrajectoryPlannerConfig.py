@@ -1,1 +1,0 @@
-/home/yzz/kal_ws/devel/.private/kal_trajectory_planner_ros_tool/lib/python3/dist-packages/kal_trajectory_planner_ros_tool/cfg/TrajectoryPlannerConfig.py

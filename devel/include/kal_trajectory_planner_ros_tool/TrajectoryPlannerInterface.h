@@ -1,1 +1,0 @@
-/home/yzz/kal_ws/devel/.private/kal_trajectory_planner_ros_tool/include/kal_trajectory_planner_ros_tool/TrajectoryPlannerInterface.h

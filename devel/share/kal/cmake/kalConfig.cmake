@@ -1,1 +1,0 @@
-/home/yzz/kal_ws/devel/.private/kal/share/kal/cmake/kalConfig.cmake

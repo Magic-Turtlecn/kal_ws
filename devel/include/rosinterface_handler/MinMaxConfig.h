@@ -1,1 +1,0 @@
-/home/yzz/kal_ws/devel/.private/rosinterface_handler/include/rosinterface_handler/MinMaxConfig.h

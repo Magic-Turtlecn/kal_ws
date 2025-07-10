@@ -1,1 +1,0 @@
-/home/yzz/kal_ws/devel/.private/rospy_message_converter/share/gennodejs/ros/rospy_message_converter/msg/Uint8Array3TestMessage.js

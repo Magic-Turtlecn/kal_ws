@@ -1,1 +1,0 @@
-/home/yzz/kal_ws/devel/.private/kal_controller_ros_tool/lib/python3/dist-packages/kal_controller_ros_tool/cfg/__init__.py
