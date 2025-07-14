@@ -21,19 +21,19 @@ wheel_base: 0.29
 # Desc:	Angle weight [-]
 # Type:	double
 # [min,max]:	[0/10]
-k_angular: 2.0
+k_angular: 2.5
 
 # Name:	k_distance
 # Desc:	Distance weight [-]
 # Type:	double
 # [min,max]:	[0/10]
-k_distance: 3.0
+k_distance: 2.5
 
 # Name:	look_ahead_index
 # Desc:	Index shift of lookahead point [-]
 # Type:	int
 # [min,max]:	[1/50]
-look_ahead_index: 10
+look_ahead_index: 8
 
 # Name:	publish_debug_info
 # Desc:	Whether or not to publish debug info
