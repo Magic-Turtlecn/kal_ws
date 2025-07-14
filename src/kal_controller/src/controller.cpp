@@ -24,47 +24,47 @@ ControlCommand Controller::getControlCommand(const Pose& vehiclePose,
     StampedPose firstStampedPose = trajectory[indexForEstimation];
     StampedPose secondStampedPose = trajectory[indexForEstimation + 1];
     double desiredSpeed = utils::computeDesiredSpeed(firstStampedPose, secondStampedPose);
-    
+
     // Stop the car if the speed is below the minimum speed threshold
     double speed = desiredSpeed < parameters_.minVelocityThreshold ? 0 : desiredSpeed;
 
-    // Compute adaptive look-ahead distance based on speed and initial curvature estimate
+    // Compute trajectory curvature with adaptive lookahead
     if (parameters_.lookAheadIndex < 1) {
         throw std::out_of_range("Look ahead index must be 1 or larger.");
     }
     
-    // Initial curvature estimation for adaptive look-ahead
-    size_t initialCurvatureIndex = std::clamp(
+    // Initial curvature estimation using base lookahead
+    size_t baseLookaheadIndex = std::clamp(
         indexOfClosestPointOnTrajectory + parameters_.lookAheadIndex, static_cast<size_t>(1), trajectory.size() - 2);
-    Position initPrevPoint = trajectory[initialCurvatureIndex - 1].pose.translation();
-    Position initCurrPoint = trajectory[initialCurvatureIndex].pose.translation();
-    Position initNextPoint = trajectory[initialCurvatureIndex + 1].pose.translation();
-    double initialCurvature = utils::discreteCurvature(initPrevPoint, initCurrPoint, initNextPoint);
+    Position basePreviousPoint = trajectory[baseLookaheadIndex - 1].pose.translation();
+    Position baseLookAheadPoint = trajectory[baseLookaheadIndex].pose.translation();
+    Position baseNextPoint = trajectory[baseLookaheadIndex + 1].pose.translation();
+    double baseCurvature = utils::discreteCurvature(basePreviousPoint, baseLookAheadPoint, baseNextPoint);
     
-    // Fixed look-ahead index (speed controlled externally)
-    size_t adaptiveLookAheadIndex = parameters_.lookAheadIndex;
+    // Adaptive lookahead based on curvature - reduce lookahead for tight curves
+    double curvatureMagnitude = std::abs(baseCurvature);
+    double adaptiveLookaheadFactor = 1.0;
     
-    // Compute improved trajectory curvature using multiple points for smoothing
-    size_t indexForCurvatureEstimation = std::clamp(
-        indexOfClosestPointOnTrajectory + adaptiveLookAheadIndex, static_cast<size_t>(2), trajectory.size() - 3);
-    
-    // Use 5-point curvature estimation for better smoothness
-    std::vector<double> curvatures;
-    for (int offset = -1; offset <= 1; offset++) {
-        size_t idx = std::clamp(static_cast<int>(indexForCurvatureEstimation) + offset, 
-                               static_cast<int>(1), static_cast<int>(trajectory.size() - 2));
-        Position prevPoint = trajectory[idx - 1].pose.translation();
-        Position currPoint = trajectory[idx].pose.translation();
-        Position nextPoint = trajectory[idx + 1].pose.translation();
-        curvatures.push_back(utils::discreteCurvature(prevPoint, currPoint, nextPoint));
+    // For tight curves (curvature > 1.0), reduce lookahead
+    if (curvatureMagnitude > 1.0) {
+        adaptiveLookaheadFactor = 0.5;
+    } else if (curvatureMagnitude > 0.5) {
+        adaptiveLookaheadFactor = 0.7;
     }
-    // Weighted average of curvatures (center point gets higher weight)
-    double curvature = 0.15 * curvatures[0] + 0.7 * curvatures[1] + 0.15 * curvatures[2];
     
+    size_t adaptiveLookaheadIndex = std::max(
+        static_cast<size_t>(1), 
+        static_cast<size_t>(parameters_.lookAheadIndex * adaptiveLookaheadFactor));
+    
+    size_t indexForCurvatureEstimation = std::clamp(
+        indexOfClosestPointOnTrajectory + adaptiveLookaheadIndex, static_cast<size_t>(1), trajectory.size() - 2);
+    Position previousPoint = trajectory[indexForCurvatureEstimation - 1].pose.translation();
     Position lookAheadPoint = trajectory[indexForCurvatureEstimation].pose.translation();
+    Position nextPoint = trajectory[indexForCurvatureEstimation + 1].pose.translation();
+    double curvature = utils::discreteCurvature(previousPoint, lookAheadPoint, nextPoint);
 
-    // Compute angle between road and vehicle orientation
-    Eigen::Vector2d targetDirection = secondStampedPose.pose.translation() - firstStampedPose.pose.translation();
+    // Compute angle between road and vehicle orientation using lookahead point
+    Eigen::Vector2d targetDirection = lookAheadPoint - vehiclePose.translation();
     double anglePath = std::atan2(targetDirection.y(), targetDirection.x());
     double yawVehicle = Eigen::Rotation2Dd(vehiclePose.rotation()).angle();
     double errorAngle = utils::normalizeAnglePlusMinusPi(yawVehicle - anglePath);
@@ -74,74 +74,26 @@ ControlCommand Controller::getControlCommand(const Pose& vehiclePose,
         vehiclePose.translation(),
         std::make_tuple(firstStampedPose.pose.translation(), secondStampedPose.pose.translation()));
 
-    // Use fixed control gains (speed controlled externally)
-    double speedAdaptiveKDistance = parameters_.kDistance;
-    double speedAdaptiveKAngle = parameters_.kAngle;
+    // Adaptive control gains based on curvature
+    double kAngleAdaptive = parameters_.kAngle;
+    double kDistanceAdaptive = parameters_.kDistance;
     
-    // Predictive control: consider future trajectory points for better anticipation
-    double predictiveError = 0.0;
-    if (indexForCurvatureEstimation + 2 < trajectory.size()) {
-        // Look 2 more points ahead for predictive control
-        size_t futureIndex = std::min(indexForCurvatureEstimation + 2, trajectory.size() - 1);
-        Position futurePoint = trajectory[futureIndex].pose.translation();
-        Position currentPos = vehiclePose.translation();
-        
-        // Calculate predicted lateral error
-        Eigen::Vector2d futureDirection = futurePoint - lookAheadPoint;
-        if (futureDirection.norm() > 0.1) {  // Avoid division by near-zero
-            futureDirection.normalize();
-            Eigen::Vector2d vehicleToFuture = futurePoint - currentPos;
-            double rawPredictiveError = futureDirection.x() * vehicleToFuture.y() - futureDirection.y() * vehicleToFuture.x();
-            
-            // Reduce predictive control influence for small field with sharp turns
-            double curvatureMagnitude = std::abs(curvature);
-            // Lower gain overall for small field, higher gain only for very sharp turns
-            double predictiveGain = std::min(0.15, curvatureMagnitude * 0.8 + 0.05);
-            predictiveError = rawPredictiveError * predictiveGain;
-        }
+    // Increase angle control for curves, reduce distance control to avoid oscillation
+    if (curvatureMagnitude > 0.5) {
+        kAngleAdaptive *= 1.5;  // Increase angle control for better curve following
+        kDistanceAdaptive *= 0.8;  // Reduce distance control to avoid overshoot
     }
     
-    // Enhanced control law with adaptive gains and predictive control
-    double feedforwardControl = curvature;
-    double lateralFeedback = speedAdaptiveKDistance * (errorSignedDistance + predictiveError);
-    double angularFeedback = speedAdaptiveKAngle * errorAngle;
-    
-    double currentU = feedforwardControl - lateralFeedback - angularFeedback;
-    
-    // Adaptive filtering based on curvature change to handle straight-to-curve transitions
-    static double previousU = 0.0;
-    static double previousCurvature = 0.0;
-    
-    // Detect curvature change rate to adjust filter aggressiveness
-    double curvatureChangeRate = std::abs(curvature - previousCurvature);
-    double adaptiveFilterWeight = std::max(0.4, std::min(0.8, 1.0 - curvatureChangeRate * 2.0));
-    
-    // Reset filter when transitioning from curve to straight (adapted for 0.5-1m radius turns)
-    // For sharp turns (curvature ~1-2), detect transition to straighter sections (curvature <0.2)
-    bool isTransitionToStraight = (std::abs(previousCurvature) > 0.5 && std::abs(curvature) < 0.2);
-    if (isTransitionToStraight) {
-        // More aggressive filtering for sharp turn exits in small field
-        adaptiveFilterWeight = 0.85;  
-    }
-    
-    double filteredU = adaptiveFilterWeight * currentU + (1.0 - adaptiveFilterWeight) * previousU;
-    
-    // Additional overshoot prevention: adjust threshold for sharp turns in small field
-    if ((currentU > 0.2 && previousU < -0.2) || (currentU < -0.2 && previousU > 0.2)) {
-        filteredU = 0.7 * currentU + 0.3 * previousU;  // More aggressive reset for sharp direction changes
-    }
-    
-    previousU = filteredU;
-    previousCurvature = curvature;
-    
-    double steeringAngle = std::atan(parameters_.wheelBase * filteredU);
+    // Compute steering angle using improved controller law
+    double u = curvature - kDistanceAdaptive * errorSignedDistance - kAngleAdaptive * errorAngle;
+    double steeringAngle = std::atan(parameters_.wheelBase * u);
     steeringAngle = std::clamp(steeringAngle, -parameters_.steeringAngleMax, parameters_.steeringAngleMax);
 
     std::optional<ControlCommand::DebugInfo> debugInfo;
     if (returnDebugInfo) {
         debugInfo.emplace();
         debugInfo->closestPointOnTrajectory = trajectory[indexOfClosestPointOnTrajectory].pose.translation();
-        debugInfo->lookAheadPoint = lookAheadPoint;
+        debugInfo->lookAheadPoint = trajectory[indexForCurvatureEstimation].pose.translation();
         debugInfo->anglePath = anglePath;
         debugInfo->curvature = curvature;
         debugInfo->errorAngle = errorAngle;
